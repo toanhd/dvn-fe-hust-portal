@@ -16,6 +16,9 @@ import {ManageStudentDialogComponent} from '../../manage-student/manage-student-
 import {ManageLecturerComponent} from '../../manage-lecturer/manage-lecturer.component';
 import {ManageLecturerDialogComponent} from '../../manage-lecturer/manage-lecturer-dialog'
 import {GradingComponent} from '../../grading/grading.component';
+import {TranscriptComponent} from '../../transcript/transcript.component';
+import {StudentService} from '../../student-services/student.service';
+import {HttpModule} from '@angular/http';
 
 import {
     MatButtonModule,
@@ -39,7 +42,8 @@ import {
         MatSelectModule,
         MatTooltipModule,
         MatDialogModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
     ],
     declarations: [
         DashboardComponent,
@@ -54,11 +58,15 @@ import {
         ManageStudentDialogComponent,
         ManageLecturerComponent,
         ManageLecturerDialogComponent,
-        GradingComponent
+        GradingComponent,
+        TranscriptComponent
     ],
     entryComponents: [
         ManageStudentDialogComponent,
         ManageLecturerDialogComponent
+    ],
+    providers: [
+        StudentService
     ]
 })
 

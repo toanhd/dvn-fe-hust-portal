@@ -1,0 +1,143 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+                <!--<button mat-raised-button (click)="openDialog()" type="submit" class="btn btn-success pull-right">New Student</button>-->
+                <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Student</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="studentForm" (ngSubmit)="onSearching()">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Student ID..." formControlName="stdID">
+                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Transcript</h4>
+                    </div>
+                    <div class="card-body">
+                        <p *ngIf="studentForm.value.stdID">Transcript for Student <b>{{studentForm.value.stdID}}</b></p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Course ID
+                                </th>
+                                <th>
+                                    Course Name
+                                </th>
+                                <th>
+                                    Credit
+                                </th>
+                                <th>
+                                    Grade
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        Dakota Rice
+                                    </td>
+                                    <td>
+                                        Niger
+                                    </td>
+                                    <td class="text-primary">
+                                        $36,738
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        Minerva Hooper
+                                    </td>
+                                    <td>
+                                        Curaçao
+                                    </td>
+                                    <td class="text-primary">
+                                        $23,789
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        Sage Rodriguez
+                                    </td>
+                                    <td>
+                                        Netherlands
+                                    </td>
+                                    <td class="text-primary">
+                                        $56,142
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        Philip Chaney
+                                    </td>
+                                    <td>
+                                        Korea, South
+                                    </td>
+                                    <td class="text-primary">
+                                        $38,735
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        Doris Greene
+                                    </td>
+                                    <td>
+                                        Malawi
+                                    </td>
+                                    <td class="text-primary">
+                                        $63,542
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        6
+                                    </td>
+                                    <td>
+                                        Mason Porter
+                                    </td>
+                                    <td>
+                                        Chile
+                                    </td>
+                                    <td class="text-primary">
+                                        $78,615
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

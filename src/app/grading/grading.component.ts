@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import {StudentService} from '../student-services/student.service';
 
 @Component({
     selector: 'app-grading',
@@ -17,7 +18,12 @@ export class GradingComponent implements OnInit {
         stdID: new FormControl(''),
     });
 
-    constructor() {
+    studentInfo;
+    studentQueryMess;
+
+    constructor(
+        private studentService: StudentService
+    ) {
     }
 
     ngOnInit() {
@@ -31,6 +37,29 @@ export class GradingComponent implements OnInit {
     }
 
     onSearching() {
-        console.log(this.studentForm.value.stdID);
+        this.studentQueryMess = undefined;
+        this.studentInfo = undefined;
+        this.studentService.getbyID(this.studentForm.value.stdID)
+            .subscribe(
+                data => {
+                    const studentResponse = {
+                        stdID: '',
+                        intakeYear: '',
+                        name: '',
+                        school: '',
+                        dob: ''
+                    };
+                    studentResponse.stdID = data.stdID;
+                    studentResponse.intakeYear = data.intakeYear;
+                    studentResponse.name = data.info.name;
+                    studentResponse.school = data.info.school;
+                    studentResponse.dob = data.info.dob;
+                    this.studentInfo = studentResponse;
+                },
+                err => {
+                    // console.log(err);
+                    this.studentQueryMess = err.error.message;
+                }
+            );
     }
 }

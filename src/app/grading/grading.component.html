@@ -4,18 +4,39 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header card-header-success">
+                    <div class="card-header card-header-warning">
                         <h4 class="card-title">Student</h4>
                     </div>
                     <div class="card-body">
                         <form [formGroup]="studentForm" (ngSubmit)="onSearching()">
                             <div class="input-group no-border">
                                 <input type="text" value="" class="form-control" placeholder="Student ID..." formControlName="stdID">
-                                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <button mat-raised-button type="submit" class="btn btn-warning btn-round btn-just-icon"
+                                        [disabled]="!studentForm.value.stdID">
                                     <i class="material-icons">search</i>
                                 </button>
                             </div>
                         </form>
+                        <p style="transition: all 0.5s ease-in-out 0s; "
+                           class="text-danger" *ngIf="studentQueryMess">{{studentQueryMess}}</p>
+                    </div>
+                    <div class="card-body" *ngIf="studentInfo">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p>Student ID</p>
+                                <p>Intake Year</p>
+                                <p>Name</p>
+                                <p>School</p>
+                                <p>DoB</p>
+                            </div>
+                            <div class="col-md-9">
+                                <p class="text-primary"><b>{{studentInfo.stdID}}</b></p>
+                                <p class="text-primary"><b>{{studentInfo.intakeYear}}</b></p>
+                                <p class="text-primary"><b>{{studentInfo.name}}</b></p>
+                                <p class="text-primary"><b>{{studentInfo.school}}</b></p>
+                                <p class="text-primary"><b>{{studentInfo.dob | date }}</b></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -25,7 +46,7 @@
                         <p class="card-category"><b> Document Verification Network</b> - HUST Portal </p>
                     </div>
                     <div class="card-body">
-                        <p class="text-center" *ngIf="studentForm.value.stdID">Grading for Student <b>{{studentForm.value.stdID}}</b></p>
+                        <p class="text-center" *ngIf="studentInfo">Grading for <b>{{studentInfo.name}}</b></p>
                         <form [formGroup]="gradingForm" (ngSubmit)="onGrading()">
                             <div class="row">
                                 <div class="col-md-2"></div>

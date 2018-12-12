@@ -11,6 +11,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ManageStudentComponent } from '../../manage-student/manage-student.component';
 import { ManageLecturerComponent } from '../../manage-lecturer/manage-lecturer.component';
 import {GradingComponent} from '../../grading/grading.component';
+import {TranscriptComponent} from '../../transcript/transcript.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -66,4 +68,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'manage-student', component: ManageStudentComponent },
     { path: 'manage-lecturer', component: ManageLecturerComponent },
     { path: 'grading', component: GradingComponent },
+    { path: 'transcript', component: TranscriptComponent },
 ];
