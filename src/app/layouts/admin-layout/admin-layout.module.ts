@@ -37,7 +37,8 @@ import {
         MatInputModule,
         MatSelectModule,
         MatTooltipModule,
-        MatDialogModule
+        MatDialogModule,
+        ReactiveFormsModule
     ],
     declarations: [
         DashboardComponent,
