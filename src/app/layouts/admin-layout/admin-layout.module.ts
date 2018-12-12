@@ -15,6 +15,7 @@ import {ManageStudentComponent} from '../../manage-student/manage-student.compon
 import {ManageStudentDialogComponent} from '../../manage-student/manage-student-dialog'
 import {ManageLecturerComponent} from '../../manage-lecturer/manage-lecturer.component';
 import {ManageLecturerDialogComponent} from '../../manage-lecturer/manage-lecturer-dialog'
+import {GradingComponent} from '../../grading/grading.component';
 
 import {
     MatButtonModule,
@@ -52,11 +53,13 @@ import {
         ManageStudentComponent,
         ManageStudentDialogComponent,
         ManageLecturerComponent,
-        ManageLecturerDialogComponent
+        ManageLecturerDialogComponent,
+        GradingComponent
     ],
-    entryComponents:
-        [ManageStudentDialogComponent,
-            ManageLecturerDialogComponent,]
+    entryComponents: [
+        ManageStudentDialogComponent,
+        ManageLecturerDialogComponent
+    ]
 })
 
 export class AdminLayoutModule {

@@ -19,6 +19,7 @@ export const ROUTES: RouteInfo[] = [
     {path: '/notifications', title: 'Notifications', icon: 'notifications', class: ''},
     {path: '/manage-student', title: 'Manage Student', icon: 'person', class: ''},
     {path: '/manage-lecturer', title: 'Manage Lecturer', icon: 'person', class: ''},
+    {path: '/grading', title: 'Grading', icon: 'grade', class: ''},
     {path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro'},
 ];
 
