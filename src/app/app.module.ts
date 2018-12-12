@@ -33,7 +33,6 @@ import {
   MatSelectModule
 } from '@angular/material';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -56,7 +55,6 @@ import {
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+<div class="card" style="box-shadow: none">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">New Student</h4>
+    </div>
+    <div class="card-body">
+        <div mat-dialog-content>
+            <mat-form-field><input matInput placeholder="Lecturer ID" [(ngModel)]="data.stdID"></mat-form-field>
+            <mat-form-field><input matInput placeholder="Name" [(ngModel)]="data.name"></mat-form-field>
+            <mat-form-field><input matInput placeholder="School" [(ngModel)]="data.school"></mat-form-field>
+        </div>
+        <div mat-dialog-actions class="d-block">
+            <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="btn btn-danger pull-right">Submit</button>
+            <button mat-button (click)="onNoClick()" class="btn pull-right">Cancel</button>
+        </div>
+    </div>
+</div>
