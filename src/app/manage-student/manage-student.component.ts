@@ -77,6 +77,7 @@ export class ManageStudentComponent implements OnInit {
                 this.loadStudents();
             },
             err => {
+                this.loadStudents();
                 if (err.error.statusCode === 500) {
                     this.showNotification(
                         'bottom',
@@ -128,12 +129,7 @@ export class ManageStudentComponent implements OnInit {
                         this.loadStudents();
                     },
                     err => {
-                        if (err.error.statusCode === 500) {
-                            this.showNotification(
-                                'bottom',
-                                'right',
-                                'There already exists an student registered with this ID.')
-                        }
+                        this.loadStudents();
                     }
                 )
             }
@@ -156,6 +152,7 @@ export class ManageStudentComponent implements OnInit {
 
         newStudentDialog.afterClosed().subscribe(result => {
             if (result) {
+                this.spinnerLoad = true;
                 result.dob = this.datePipe.transform(result.dob, 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'');
                 this.createStudent(result)
             }

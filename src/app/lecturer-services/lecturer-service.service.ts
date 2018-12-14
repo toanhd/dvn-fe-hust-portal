@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, RequestOptions, Response} from '@angular/http';
-import {catchError, map, filter, switchMap} from 'rxjs/operators';
-import {Observable} from 'rxjs/Rx'
-
-import 'rxjs/add/observable/throw';
+import {Headers, Http, Response} from '@angular/http';
+import {catchError, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class StudentService {
+export class LecturerService {
 
     url = 'http://13.76.224.67:3000/';
 
@@ -17,10 +15,10 @@ export class StudentService {
     ) {
     }
 
-    create(student) {
-        const body = JSON.stringify(student);
+    create(lecturer) {
+        const body = JSON.stringify(lecturer);
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.post(this.url + 'api/Student', body, {headers: headers})
+        return this.http.post(this.url + 'api/Lecturer', body, {headers: headers})
             .pipe(map((response: Response) => {
                     return {
                         response: response.json(),
@@ -30,15 +28,15 @@ export class StudentService {
             )
     }
 
-    delete(stdID) {
+    delete(lecID) {
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.delete(this.url + 'api/Student/' + stdID, {headers: headers})
+        return this.http.delete(this.url + 'api/Lecturer/' + lecID, {headers: headers})
             .pipe(catchError((error: Response) => Observable.throw(error.json())))
     }
 
     getAll() {
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.get(this.url + 'api/Student', {headers: headers})
+        return this.http.get(this.url + 'api/Lecturer', {headers: headers})
             .pipe(map((response: Response) => response.json())
                 , catchError((error: Response) => Observable.throw(error.json())))
     }
@@ -46,7 +44,7 @@ export class StudentService {
 
     getbyID(id) {
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.get(this.url + 'api/Student/' + id, {headers: headers})
+        return this.http.get(this.url + 'api/Lecturer/' + id, {headers: headers})
             .pipe(map((response: Response) => response.json())
                 , catchError(
                     (error: Response) => Observable.throwError(error.json())
@@ -54,12 +52,12 @@ export class StudentService {
             )
     }
 
-    update(student) {
-        const stdID = student.stdID;
-        student.stdID = '';
-        const body = JSON.stringify(student);
+    update(lecturer) {
+        const stdID = lecturer.lecID;
+        lecturer.lecID = '';
+        const body = JSON.stringify(lecturer);
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.put(this.url + 'api/Student/' + stdID, body, {headers: headers})
+        return this.http.put(this.url + 'api/Lecturer/' + stdID, body, {headers: headers})
             .pipe(map((response: Response) => {
                     return {
                         response: response.json(),

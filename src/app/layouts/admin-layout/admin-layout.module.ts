@@ -18,6 +18,7 @@ import {ManageLecturerDialogComponent} from '../../manage-lecturer/manage-lectur
 import {GradingComponent} from '../../grading/grading.component';
 import {TranscriptComponent} from '../../transcript/transcript.component';
 import {StudentService} from '../../student-services/student.service';
+import {LecturerService} from '../../lecturer-services/lecturer-service.service';
 import {HttpModule} from '@angular/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -77,6 +78,7 @@ import {
     ],
     providers: [
         StudentService,
+        LecturerService,
         DatePipe
     ]
 })
