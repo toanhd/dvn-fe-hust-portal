@@ -13,269 +13,76 @@
                         <h4 class="card-title ">Student List</h4>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                <th>
-                                    Student ID
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    School
-                                </th>
-                                <th>
-                                    Intake Year
-                                </th>
-                                <th>
-                                    Transcript ID
-                                </th>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        1
+                        <mat-spinner [diameter]="40" [color]="'warn'" style="margin:0 auto;"
+                                     *ngIf="!dataSource || spinnerLoad"></mat-spinner>
+                        <div *ngIf="!spinnerLoad" class="table-responsive">
+
+                            <table mat-table [dataSource]="dataSource" class="table">
+                                <ng-container matColumnDef="stdID">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"> MSSV</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.stdID}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"> Họ và tên</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.info.name}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="school">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"> Khoa/Viện</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.info.school}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="intakeYear">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"> Khóa</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.intakeYear}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="dob">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"> Ngày Sinh</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.info.dob | date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="action-transcript">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-raised-button type="submit"
+                                                class="btn btn-warning btn-round btn-just-icon"
+                                                (click)="viewTranscript(element.stdID)">
+                                            <i class="material-icons">file_copy</i>
+                                        </button>
                                     </td>
-                                    <td>
-                                        Dakota Rice
+                                </ng-container>
+
+                                <ng-container matColumnDef="action-update">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-raised-button type="submit"
+                                                class="btn btn-success btn-round btn-just-icon"
+                                                (click)="updateStudent(element)">
+                                            <i class="material-icons">edit</i>
+                                        </button>
                                     </td>
-                                    <td>
-                                        Niger
+                                </ng-container>
+
+                                <ng-container matColumnDef="action-delete">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-raised-button type="submit"
+                                                class="btn btn-danger btn-round btn-just-icon"
+                                                (click)="deleteStudent(element.stdID)">
+                                            <i class="material-icons">clear</i>
+                                        </button>
                                     </td>
-                                    <td>
-                                        Oud-Turnhout
-                                    </td>
-                                    <td class="text-primary">
-                                        $36,738
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        Minerva Hooper
-                                    </td>
-                                    <td>
-                                        Curaçao
-                                    </td>
-                                    <td>
-                                        Sinaai-Waas
-                                    </td>
-                                    <td class="text-primary">
-                                        $23,789
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td>
-                                        Sage Rodriguez
-                                    </td>
-                                    <td>
-                                        Netherlands
-                                    </td>
-                                    <td>
-                                        Baileux
-                                    </td>
-                                    <td class="text-primary">
-                                        $56,142
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        Philip Chaney
-                                    </td>
-                                    <td>
-                                        Korea, South
-                                    </td>
-                                    <td>
-                                        Overland Park
-                                    </td>
-                                    <td class="text-primary">
-                                        $38,735
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        5
-                                    </td>
-                                    <td>
-                                        Doris Greene
-                                    </td>
-                                    <td>
-                                        Malawi
-                                    </td>
-                                    <td>
-                                        Feldkirchen in Kärnten
-                                    </td>
-                                    <td class="text-primary">
-                                        $63,542
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6
-                                    </td>
-                                    <td>
-                                        Mason Porter
-                                    </td>
-                                    <td>
-                                        Chile
-                                    </td>
-                                    <td>
-                                        Gloucester
-                                    </td>
-                                    <td class="text-primary">
-                                        $78,615
-                                    </td>
-                                </tr>
-                                </tbody>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-12">
-              <div class="card card-plain">
-                <div class="card-header card-header-danger">
-                  <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead class="">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Country
-                        </th>
-                        <th>
-                          City
-                        </th>
-                        <th>
-                          Salary
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td>
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td>
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td>
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td>
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td>
-                            $78,615
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
     </div>
+</div>

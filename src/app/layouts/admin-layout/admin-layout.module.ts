@@ -19,6 +19,10 @@ import {GradingComponent} from '../../grading/grading.component';
 import {TranscriptComponent} from '../../transcript/transcript.component';
 import {StudentService} from '../../student-services/student.service';
 import {HttpModule} from '@angular/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {DatePipe} from '@angular/common';
+
 
 import {
     MatButtonModule,
@@ -27,7 +31,9 @@ import {
     MatFormFieldModule,
     MatTooltipModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -43,7 +49,11 @@ import {
         MatTooltipModule,
         MatDialogModule,
         ReactiveFormsModule,
-        HttpModule
+        HttpModule,
+        MatTableModule,
+        MatProgressSpinnerModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     declarations: [
         DashboardComponent,
@@ -66,7 +76,8 @@ import {
         ManageLecturerDialogComponent
     ],
     providers: [
-        StudentService
+        StudentService,
+        DatePipe
     ]
 })
 

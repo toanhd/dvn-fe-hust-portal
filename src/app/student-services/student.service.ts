@@ -19,10 +19,10 @@ export class StudentService {
     ) {
     }
 
-    create(user) {
-        const body = JSON.stringify(user);
+    create(student) {
+        const body = JSON.stringify(student);
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.post(this.url + 'create', body, {headers: headers})
+        return this.http.post(this.url + 'api/Student', body, {headers: headers})
             .pipe(map((response: Response) => {
                     return {
                         response: response.json(),
@@ -30,6 +30,12 @@ export class StudentService {
                     }
                 }), catchError((error: Response) => Observable.throw(error.json()))
             )
+    }
+
+    delete(stdID) {
+        const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
+        return this.http.delete(this.url + 'api/Student/' + stdID, {headers: headers})
+            .pipe(catchError((error: Response) => Observable.throw(error.json())))
     }
 
     getAll() {
@@ -44,31 +50,22 @@ export class StudentService {
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
         return this.http.get(this.url + 'api/Student/' + id, {headers: headers})
             .pipe(map((response: Response) => response.json())
-                , catchError((error: Response) => Observable.throwError(error.json())))
+                , catchError(
+                    (error: Response) => Observable.throwError(error.json())
+                )
+            )
     }
 
-    delete(inputUsers) {
-        const usersID = [];
-        inputUsers.forEach(function (user) {
-            usersID.push(user._id)
-        });
+    update(student) {
+        const stdID = student.stdID;
+        student.stdID = '';
+        const body = JSON.stringify(student);
         const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        let options = new RequestOptions({headers: headers, body: usersID});
-        return this.http.delete(this.url + 'delete', options)
-            .pipe(catchError((error: Response) => Observable.throw(error.json())))
-    }
-
-    update(userID, cell, cellValue) {
-        const body = JSON.stringify({
-            userId: userID,
-            cell: cell,
-            cellValue: cellValue
-        });
-        const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
-        return this.http.patch(this.url + 'update', body, {headers: headers})
+        return this.http.put(this.url + 'api/Student/' + stdID, body, {headers: headers})
             .pipe(map((response: Response) => {
                     return {
-                        response: response.json()
+                        response: response.json(),
+                        code: response.status
                     }
                 }), catchError((error: Response) => Observable.throw(error.json()))
             )
