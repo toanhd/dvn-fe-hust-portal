@@ -41,6 +41,7 @@ export class ManageStudentComponent implements OnInit {
     }
 
     deleteStudent(stdID) {
+        this.spinnerLoad = true;
         this.studentService.delete(stdID)
             .subscribe(
                 err => {

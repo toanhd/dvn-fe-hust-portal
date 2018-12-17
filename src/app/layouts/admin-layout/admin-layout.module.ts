@@ -17,8 +17,11 @@ import {ManageLecturerComponent} from '../../manage-lecturer/manage-lecturer.com
 import {ManageLecturerDialogComponent} from '../../manage-lecturer/manage-lecturer-dialog'
 import {GradingComponent} from '../../grading/grading.component';
 import {TranscriptComponent} from '../../transcript/transcript.component';
+import {TranscriptDialogComponent} from '../../transcript/transcript-dialog'
 import {StudentService} from '../../student-services/student.service';
 import {LecturerService} from '../../lecturer-services/lecturer-service.service';
+import {GradingService} from '../../grading-services/grading-service.service';
+import {TranscriptService} from '../../transcript-services/transcript-service.service';
 import {HttpModule} from '@angular/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -34,7 +37,8 @@ import {
     MatSelectModule,
     MatDialogModule,
     MatTableModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
@@ -54,7 +58,8 @@ import {
         MatTableModule,
         MatProgressSpinnerModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatAutocompleteModule,
     ],
     declarations: [
         DashboardComponent,
@@ -70,15 +75,19 @@ import {
         ManageLecturerComponent,
         ManageLecturerDialogComponent,
         GradingComponent,
-        TranscriptComponent
+        TranscriptComponent,
+        TranscriptDialogComponent
     ],
     entryComponents: [
         ManageStudentDialogComponent,
-        ManageLecturerDialogComponent
+        ManageLecturerDialogComponent,
+        TranscriptDialogComponent
     ],
     providers: [
         StudentService,
         LecturerService,
+        GradingService,
+        TranscriptService,
         DatePipe
     ]
 })

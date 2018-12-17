@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class LecturerService {
 
-    url = 'http://13.76.224.67:3000/';
+    url = 'http://137.116.146.224:3000/';
 
     constructor(
         private http: Http
