@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import {OpenPortalComponent} from './open-portal/open-portal.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       }]
   },
   { path: 'login', component: LoginComponent },
+  { path: 'open-portal', component: OpenPortalComponent},
   // { path: 'user-profile',   component: UserProfileComponent },
   // { path: 'table-list',     component: TableListComponent },
   // { path: 'typography',     component: TypographyComponent },

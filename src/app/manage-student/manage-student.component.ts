@@ -83,7 +83,7 @@ export class ManageStudentComponent implements OnInit {
                     this.showNotification(
                         'bottom',
                         'right',
-                        'There already exists an student registered with this ID.')
+                        'Đã tồn tại sinh viên với mã số này!')
                 }
             }
         )
