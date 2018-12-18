@@ -377,10 +377,7 @@ export class RequestDialogComponent implements OnInit {
 
         <!-- Visually Hidden Preheader Text : BEGIN -->
         <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-            Thời gian vẫn cứ lờ lững trôi, tháng 10 lặng lẽ đi qua nhường chỗ cho tháng 11 "bước" đến. Tháng 11 nữa lại
-            về, một tháng gợi lên cho con người nhiều cảm xúc yêu thương mãnh liệt, cảm xúc về một mùa nhớ, ướm lên
-            lòng người cái lạnh của đầu đông làm cho nhiều người lại khao khát một tình yêu ngọt ngào và cũng là mùa để
-            người ta gặm nhấm nỗi cơ đơn.
+            [Cổng thông tin xác thực bảng điểm] - Kết quả xác thực!
         </div>
         <!-- Visually Hidden Preheader Text : END -->
 
