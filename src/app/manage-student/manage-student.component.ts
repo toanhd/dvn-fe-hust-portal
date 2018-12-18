@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import {ManageStudentDialogComponent} from './manage-student-dialog'
 import {StudentService} from '../student-services/student.service';
 import {DatePipe} from '@angular/common';
+import {TranscriptService} from '../transcript-services/transcript-service.service';
 
 declare var $: any;
 
@@ -20,7 +21,8 @@ export class ManageStudentComponent implements OnInit {
     constructor(
         public dialog: MatDialog,
         private studentService: StudentService,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private transcriptService: TranscriptService
     ) {
     }
 
@@ -38,6 +40,7 @@ export class ManageStudentComponent implements OnInit {
                 err => {
                 }
             );
+
     }
 
     deleteStudent(stdID) {
@@ -46,6 +49,15 @@ export class ManageStudentComponent implements OnInit {
             .subscribe(
                 err => {
                     this.loadStudents()
+                }
+            );
+        const tranID = 'transcript_' + stdID;
+        this.transcriptService.deleteTranscript(tranID)
+            .subscribe(
+                data => {
+
+                },
+                err => {
                 }
             );
     }

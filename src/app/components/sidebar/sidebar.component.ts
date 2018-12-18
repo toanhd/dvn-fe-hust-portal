@@ -21,6 +21,7 @@ export const ROUTES: RouteInfo[] = [
     {path: '/manage-lecturer', title: 'Manage Lecturer', icon: 'person', class: ''},
     {path: '/grading', title: 'Grading', icon: 'grade', class: ''},
     {path: '/transcript', title: 'Transcript', icon: 'book', class: ''},
+    {path: '/manage-request', title: 'Request', icon: 'archive', class: ''},
     // {path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro'},
 ];
 

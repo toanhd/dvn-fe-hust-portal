@@ -17,7 +17,6 @@ export interface DialogData {
 })
 export class ManageStudentDialogComponent {
 
-    startDate = new Date(1990, 0, 1);
 
     constructor(
         public dialogRef: MatDialogRef<ManageStudentDialogComponent>,

@@ -49,5 +49,17 @@ export class TranscriptService {
             )
     }
 
+    deleteTranscript(transcriptID) {
+        const headers = new Headers({'Content-Type': 'application/json', 'x-api-key': 'toanhd'});
+        return this.http.delete(this.url + 'api/Transcript/' + transcriptID, {headers: headers})
+            .pipe(map((response: Response) => {
+                    return {
+                        response: response.json(),
+                        code: response.status
+                    }
+                }), catchError((error: Response) => Observable.throw(error.json()))
+            )
+    }
+
 }
 

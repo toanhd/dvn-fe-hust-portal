@@ -18,6 +18,8 @@ import {ManageLecturerDialogComponent} from '../../manage-lecturer/manage-lectur
 import {GradingComponent} from '../../grading/grading.component';
 import {TranscriptComponent} from '../../transcript/transcript.component';
 import {TranscriptDialogComponent} from '../../transcript/transcript-dialog'
+import {ManageRequestComponent} from '../../manage-request/manage-request.component'
+import {RequestDialogComponent} from '../../manage-request/request-dialog';
 import {StudentService} from '../../student-services/student.service';
 import {LecturerService} from '../../lecturer-services/lecturer-service.service';
 import {GradingService} from '../../grading-services/grading-service.service';
@@ -40,6 +42,7 @@ import {
     MatNativeDateModule,
     MatAutocompleteModule
 } from '@angular/material';
+import {RequestService} from '../../request.service';
 
 @NgModule({
     imports: [
@@ -76,19 +79,23 @@ import {
         ManageLecturerDialogComponent,
         GradingComponent,
         TranscriptComponent,
-        TranscriptDialogComponent
+        TranscriptDialogComponent,
+        ManageRequestComponent,
+        RequestDialogComponent
     ],
     entryComponents: [
         ManageStudentDialogComponent,
         ManageLecturerDialogComponent,
-        TranscriptDialogComponent
+        TranscriptDialogComponent,
+        RequestDialogComponent
     ],
     providers: [
         StudentService,
         LecturerService,
         GradingService,
         TranscriptService,
-        DatePipe
+        DatePipe,
+        RequestService
     ]
 })
 
