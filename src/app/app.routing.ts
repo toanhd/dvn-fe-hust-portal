@@ -10,7 +10,7 @@ import {OpenPortalComponent} from './open-portal/open-portal.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'manage-student',
     pathMatch: 'full',
   }, {
     path: '',
