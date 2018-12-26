@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {ROUTES} from '../sidebar/sidebar.component';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 
 @Component({
@@ -95,7 +95,8 @@ export class NavbarComponent implements OnInit {
                 $layer.classList.add('visible');
             }, 100);
 
-            $layer.onclick = function () {  //asign a function
+            $layer.onclick = function () {
+                // asign a function
                 body.classList.remove('nav-open');
                 this.mobile_menu_visible = 0;
                 $layer.classList.remove('visible');
@@ -127,6 +128,6 @@ export class NavbarComponent implements OnInit {
 
     logOut() {
         localStorage.clear();
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('login');
     }
 }

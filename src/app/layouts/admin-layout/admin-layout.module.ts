@@ -50,7 +50,6 @@ import {
         GradingComponent,
         TranscriptComponent,
         TranscriptDialogComponent,
-
     ],
     entryComponents: [
         TranscriptDialogComponent,

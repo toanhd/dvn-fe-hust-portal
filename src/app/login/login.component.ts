@@ -11,8 +11,8 @@ import {AppService} from '../app-services.service';
 export class LoginComponent implements OnInit {
 
     loginForm = new FormGroup({
-        username: new FormControl('giangv', Validators.required),
-        password: new FormControl('1', Validators.required),
+        username: new FormControl('', Validators.required),
+        password: new FormControl('', Validators.required),
     });
     loginMess;
 
@@ -48,6 +48,4 @@ export class LoginComponent implements OnInit {
             )
         }
     }
-
-
 }
