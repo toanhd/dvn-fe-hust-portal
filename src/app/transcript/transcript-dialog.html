@@ -7,7 +7,8 @@
             <p class="text-primary">{{data.courseName}}</p>
             <p> Số tín chỉ: <span class="text-primary">{{data.credit}}</span></p>
             <!--<mat-form-field><input matInput type="number" placeholder="Số tín chỉ" [(ngModel)]="data.credit"></mat-form-field>-->
-            <mat-form-field><input matInput type="number" placeholder="Điểm" [(ngModel)]="data.gradeVal"></mat-form-field>
+            <mat-form-field><input matInput type="number" min="0" max="10" placeholder="Điểm" [(ngModel)]="data.gradeVal"></mat-form-field>
+            <p class="text-danger" *ngIf="data.gradeVal<0 || data.gradeVal>10">Chỉ chấp nhận thang điểm 10</p>
             <!--<mat-form-field><input matInput placeholder="Học kỳ" [(ngModel)]="data.semester"></mat-form-field>-->
             <mat-form-field>
                 <input matInput type="number" [(ngModel)]="data.semester" [matAutocomplete]="auto"
@@ -20,7 +21,7 @@
             </mat-form-field>
         </div>
         <div mat-dialog-actions class="d-block">
-            <button [disabled]="!data.credit || !data.gradeVal || !data.semester"
+            <button [disabled]="!data.credit || !data.gradeVal || !data.semester || data.gradeVal<0 || data.gradeVal>10"
                     [mat-dialog-close]="data" cdkFocusInitial class="btn btn-danger pull-right" mat-button>
                 Submit
             </button>

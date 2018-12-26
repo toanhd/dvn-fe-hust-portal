@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <form [formGroup]="studentForm" (ngSubmit)="onSearching(studentForm.value.stdID)">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Student ID..." formControlName="stdID">
+                                <input type="text" value="" class="form-control" placeholder="Mã số sinh viên" formControlName="stdID">
                                 <button mat-raised-button type="submit" class="btn btn-warning btn-round btn-just-icon"
                                         [disabled]="!studentForm.value.stdID">
                                     <i class="material-icons">search</i>
@@ -33,7 +33,7 @@
                                 <p class="text-primary"><b>{{studentInfo.intakeYear}}</b></p>
                                 <p class="text-primary"><b>{{studentInfo.name}}</b></p>
                                 <p class="text-primary"><b>{{studentInfo.school}}</b></p>
-                                <p class="text-primary"><b>{{studentInfo.dob | date }}</b></p>
+                                <p class="text-primary"><b>{{studentInfo.dob | date : '\'Ngày\' dd\' tháng \'MM\' năm\' yyyy'}}</b></p>
                             </div>
                         </div>
                     </div>
@@ -84,12 +84,15 @@
                                 </div>
                                 <div class="col-md-8">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput type="number" placeholder="Điểm" formControlName="gradeVal">
+                                        <input matInput type="number" min="0" max="10" placeholder="Điểm" formControlName="gradeVal">
                                     </mat-form-field>
+                                    <p class="text-danger" *ngIf="gradingForm.value.gradeVal<0 || gradingForm.value.gradeVal>10">
+                                        Chỉ chấp nhận thang điểm 10</p>
                                 </div>
                             </div>
                             <button mat-raised-button type="submit"
-                                    [disabled]="!gradingForm.value.semester || !gradingForm.value.gradeVal || !gradingForm.value.course"
+                                    [disabled]="!gradingForm.value.semester || !gradingForm.value.gradeVal || !gradingForm.value.course ||
+                                    gradingForm.value.gradeVal<0 || gradingForm.value.gradeVal>10"
                                     class="btn btn-danger pull-right">Submit
                             </button>
                             <div class="clearfix"></div>
