@@ -5,6 +5,7 @@ import {DatePipe} from '@angular/common';
 import {TranscriptService} from '../transcript-services/transcript-service.service';
 import {TranscriptDialogComponent} from '../transcript/transcript-dialog';
 import {MatDialog} from '@angular/material';
+import {AppService} from '../app-services.service';
 
 export interface Course {
     id: string,
@@ -127,6 +128,7 @@ export class GradingComponent implements OnInit {
         private datePipe: DatePipe,
         private transcriptService: TranscriptService,
         public dialog: MatDialog,
+        private authenService: AppService,
     ) {
     }
 
@@ -186,7 +188,7 @@ export class GradingComponent implements OnInit {
         grade.gradeVal = gradingInfo.gradeVal;
         grade.semester = gradingInfo.semester;
         grade.stdID = this.studentInfo.stdID;
-        grade.lecID = '442';
+        grade.lecID = this.authenService.getUserID();
 
         this.transcriptService.grading(grade).subscribe(
             data => {

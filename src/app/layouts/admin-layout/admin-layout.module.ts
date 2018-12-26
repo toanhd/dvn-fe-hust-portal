@@ -6,6 +6,7 @@ import {AdminLayoutRoutes} from './admin-layout.routing';
 import {GradingComponent} from '../../grading/grading.component';
 import {TranscriptComponent} from '../../transcript/transcript.component';
 import {TranscriptDialogComponent} from '../../transcript/transcript-dialog'
+import {LecInfoDialogComponent} from '../../transcript/lecturer-info-dialog'
 import {StudentService} from '../../student-services/student.service';
 import {TranscriptService} from '../../transcript-services/transcript-service.service';
 import {HttpModule} from '@angular/http';
@@ -50,9 +51,11 @@ import {
         GradingComponent,
         TranscriptComponent,
         TranscriptDialogComponent,
+        LecInfoDialogComponent
     ],
     entryComponents: [
         TranscriptDialogComponent,
+        LecInfoDialogComponent
     ],
     providers: [
         StudentService,

@@ -4,6 +4,7 @@ import {TranscriptService} from '../transcript-services/transcript-service.servi
 import {StudentService} from '../student-services/student.service';
 import {TranscriptDialogComponent} from './transcript-dialog';
 import {MatDialog} from '@angular/material';
+import {LecInfoDialogComponent} from './lecturer-info-dialog';
 
 @Component({
     selector: 'app-transcript',
@@ -16,7 +17,7 @@ export class TranscriptComponent implements OnInit {
     });
 
 
-    displayedColumns: string[] = ['courseID', 'courseName', 'credit', 'gradeVal', 'semester', 'action-update', 'action-delete'];
+    displayedColumns: string[] = ['courseID', 'courseName', 'credit', 'gradeVal', 'semester', 'lecID', 'action-update', 'action-delete'];
     dataSource;
     studentInfo;
     spinnerLoad = false;
@@ -32,6 +33,15 @@ export class TranscriptComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    onLecturer(lecID) {
+        this.dialog.open(LecInfoDialogComponent, {
+            width: '600px',
+            data: {
+                lecID: lecID
+            }
+        })
     }
 
     updateGrade(grade, index) {
@@ -94,7 +104,6 @@ export class TranscriptComponent implements OnInit {
             this.studentService.getbyID(stdID).subscribe(
                 data => {
                     if (data) {
-
                         this.spinnerLoad = false;
                         this.studentInfo = data;
                         const tranID = 'transcript_' + stdID;

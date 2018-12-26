@@ -1,0 +1,24 @@
+<div class="card" style="box-shadow: none">
+    <div class="card-header card-header-success">
+        <h4 class="card-title">Thông tin giảng viên</h4>
+    </div>
+    <mat-spinner [diameter]="40" [color]="'warn'" style="margin:0 auto;"
+                 *ngIf="!lecturer"></mat-spinner>
+    <div class="card-body" *ngIf="lecturer">
+        <div mat-dialog-content style="overflow-y: hidden">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>Giảng viên:</p>
+                    <p>Khoa/Viện:</p>
+                </div>
+                <div class="col-md-8">
+                    <p class="text-primary">{{lecturer.name}}</p>
+                    <p class="text-primary">{{lecturer.school}}</p>
+                </div>
+            </div>
+        </div>
+        <div mat-dialog-actions class="d-block">
+            <button mat-button (click)="onNoClick()" class="btn pull-right">Cancel</button>
+        </div>
+    </div>
+</div>
